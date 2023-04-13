@@ -2,13 +2,18 @@ import java.util.Scanner;
 
 public class BattleshipMenu {
 	private Scanner scanner;
-	private int numPlayers;
+	private String[] menuOptions = {
+			"Exit",
+			"1-Player Game",
+			"2-Player Game"
+	};
 
 	public BattleshipMenu(Scanner scanner) {
 		this.scanner = scanner;
 
 		printGameTitle();
-		selectNumOfPlayers();
+		printMenuOptions();
+		selectGameOption();
 	}
 
 	private void printGameTitle() {
@@ -27,19 +32,31 @@ public class BattleshipMenu {
 		System.out.println();
 	}
 
-	private void selectNumOfPlayers() {
-		System.out.print("Select the number of players. Enter 1 or 2: ");
-		this.numPlayers = getNextIntFromUser();
+	private void printMenuOptions() {
+		System.out.println("----Menu----");
+		System.out.println("Select an option using one of the numbers shown:");
+		System.out.println();
 
-		while (numPlayers != 1 && numPlayers != 2) {
-			System.out.print("Invalid entry. Please enter 1 for a one-player game or 2 for a two-player game: ");
-			this.numPlayers = getNextIntFromUser();
+		for (int i = 0; i < menuOptions.length; i++) {
+			System.out.print(i + ": ");
+			System.out.println(menuOptions[i]);
 		}
+	}
 
-		if (numPlayers == 1) {
+	private void selectGameOption() {
+		int gameOption = getNextIntFromUser();
+
+		while (gameOption != 0 && gameOption != 1 && gameOption != 2) {
+			System.out.print("Invalid entry. Please enter 1 for a one-player game or 2 for a two-player game: ");
+			gameOption = getNextIntFromUser();
+		}
+		if (gameOption == 0) {
+			exit();
+		}
+		if (gameOption == 1) {
 			playOnePlayerGame();
 		}
-		if (numPlayers == 2) {
+		if (gameOption == 2) {
 			playTwoPlayerGame();
 		}
 	}
@@ -58,5 +75,10 @@ public class BattleshipMenu {
 			scanner.next();
 		}
 		return scanner.nextInt();
+	}
+
+	private void exit() {
+		System.out.println("Exiting now. Goodbye.");
+		scanner.close();
 	}
 }
