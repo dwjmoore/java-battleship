@@ -54,21 +54,13 @@ public class BattleshipMenu {
 			exit();
 		}
 		if (gameOption == 1) {
-			playOnePlayerGame();
+			new OnePlayerGame();
 		}
 		if (gameOption == 2) {
-			playTwoPlayerGame();
+			new TwoPlayerGame();
 		}
 	}
-
-	private void playOnePlayerGame() {
-		System.out.println("One-player game selected, but not yet implemented.");
-	}
-
-	private void playTwoPlayerGame() {
-		System.out.println("Two-player game selected, but not yet implemented.");
-	}
-
+	
 	private int getNextIntFromUser() {
 		while (!scanner.hasNextInt()) {
 			System.out.println("Selection not valid. Try again.");
