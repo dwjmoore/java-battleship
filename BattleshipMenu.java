@@ -12,8 +12,7 @@ public class BattleshipMenu {
 		this.scanner = scanner;
 
 		printGameTitle();
-		printMenuOptions();
-		selectGameOption();
+		executeBattleshipMenu();
 	}
 
 	private void printGameTitle() {
@@ -32,8 +31,25 @@ public class BattleshipMenu {
 		System.out.println();
 	}
 
+	private void executeBattleshipMenu() {
+		printMenuOptions();
+		int gameOption = getNextIntFromUser();
+		while (gameOption != 0) {
+			if (gameOption == 1) {
+				new OnePlayerGame();
+			} else if (gameOption == 2) {
+				new TwoPlayerGame();
+			} else {
+				System.out.println("Selection is not valid.");
+			}
+			printMenuOptions();
+			gameOption = getNextIntFromUser();
+		}
+		exit();
+	}
+
 	private void printMenuOptions() {
-		System.out.println("----Menu----");
+		System.out.println("\n----Menu----");
 		System.out.println("Select an option using one of the numbers shown:");
 		System.out.println();
 
@@ -43,24 +59,6 @@ public class BattleshipMenu {
 		}
 	}
 
-	private void selectGameOption() {
-		int gameOption = getNextIntFromUser();
-
-		while (gameOption != 0 && gameOption != 1 && gameOption != 2) {
-			System.out.print("Invalid entry. Please enter 1 for a one-player game or 2 for a two-player game: ");
-			gameOption = getNextIntFromUser();
-		}
-		if (gameOption == 0) {
-			exit();
-		}
-		if (gameOption == 1) {
-			new OnePlayerGame();
-		}
-		if (gameOption == 2) {
-			new TwoPlayerGame();
-		}
-	}
-	
 	private int getNextIntFromUser() {
 		while (!scanner.hasNextInt()) {
 			System.out.println("Selection not valid. Try again.");
