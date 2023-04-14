@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 class Main {
 	public static void main(String[] args) {
-		new BattleshipMenu(new Scanner(new InputStreamReader(System.in, Charset.forName("UTF-8"))));
+		// new BattleshipMenu(new Scanner(new InputStreamReader(System.in,
+		// Charset.forName("UTF-8"))));
+		Board board = new Board();
+		board.printBoard(board.getPlayerBoard());
 	}
 }
