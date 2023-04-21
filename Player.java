@@ -1,5 +1,6 @@
 public class Player {
 	private int playerNumber;
+	
 
 	public Player(int playerNumber) {
 		this.playerNumber = playerNumber;
@@ -10,6 +11,6 @@ public class Player {
 	}
 
 	public void placeShips() {
-		System.out.println("Place ships function called, but not implemented.");
+		System.out.printf("Player %d, please place your ships.", playerNumber);
 	}
 }

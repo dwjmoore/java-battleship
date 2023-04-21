@@ -24,4 +24,8 @@ public class Ship {
 		}
 		this.location = new String[length];
 	}
+
+	public void takeAHit() {
+		System.out.println("takeAHit() called, but not yet implemented.");
+	}
 }
