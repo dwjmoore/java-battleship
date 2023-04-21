@@ -5,11 +5,11 @@ public class Player {
 		this.playerNumber = playerNumber;
 	}
 
-	private void attack() {
+	public void attack() {
 		System.out.println("Attack function called, but not implemented.");
 	}
 
-	private void placeShips() {
+	public void placeShips() {
 		System.out.println("Place ships function called, but not implemented.");
 	}
 }

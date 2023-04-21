@@ -35,13 +35,9 @@ public class BattleshipMenu {
 		printMenuOptions();
 		int gameOption = getNextIntFromUser();
 		while (gameOption != 0) {
-			if (gameOption == 1) {
-				new OnePlayerGame();
-			} else if (gameOption == 2) {
-				new TwoPlayerGame();
-			} else {
-				System.out.println("Selection is not valid.");
-			}
+			if (gameOption == 1) new OnePlayerGame();
+			else if (gameOption == 2) new TwoPlayerGame();
+			else System.out.println("Selection is not valid.");
 			printMenuOptions();
 			gameOption = getNextIntFromUser();
 		}
@@ -54,8 +50,7 @@ public class BattleshipMenu {
 		System.out.println();
 
 		for (int i = 0; i < menuOptions.length; i++) {
-			System.out.print(i + ": ");
-			System.out.println(menuOptions[i]);
+			System.out.println(String.format("%d: %s", i, menuOptions[i]));
 		}
 	}
 

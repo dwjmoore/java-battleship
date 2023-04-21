@@ -8,6 +8,7 @@ public class Ship {
 
 		if (type == "carrier") {
 			this.length = 5;
+			this.location = new String[this.length];
 		}
 		if (type == "battleship") {
 			this.length = 4;
