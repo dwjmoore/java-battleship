@@ -35,4 +35,28 @@ public class Board {
 	public String[][] getEnemyBoard() {
 		return enemyBoard;
 	}
+
+	public int getRowNumbers(String letter) {
+		if (letter.equals("A"))
+			return 0;
+		if (letter.equals("B"))
+			return 1;
+		if (letter.equals("C"))
+			return 2;
+		if (letter.equals("D"))
+			return 3;
+		if (letter.equals("E"))
+			return 4;
+		if (letter.equals("F"))
+			return 5;
+		if (letter.equals("G"))
+			return 6;
+		if (letter.equals("H"))
+			return 7;
+		if (letter.equals("I"))
+			return 8;
+		if (letter.equals("J"))
+			return 9;
+		return -1;
+	}
 }
